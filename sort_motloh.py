@@ -1,6 +1,10 @@
 import os
 import shutil
 import threading
+from pathlib import Path
+import sys
+
+
 
 def process_folder(folder_path,subpath ):
     for root, dirs, files in os.walk(subpath):
@@ -11,7 +15,18 @@ def process_folder(folder_path,subpath ):
             shutil.move(os.path.join(root, file), os.path.join(dest_folder, file))
 
 def main():
-    folder_path = 'e:\Мотлох' 
+    if len(sys.argv) != 2:
+        print("Введіть 2 параметра: назву скрипта і папку, яку потрібно розібрати")
+        quit()
+    folder_path = Path(sys.argv[1])
+    print(repr(folder_path))
+
+
+    if not folder_path.exists():
+        print('Папку', folder_path, 'не знайдено')
+        sys.exit()
+
+    folder_path = str(folder_path)
     threads = []
     files = []
     directories = []
