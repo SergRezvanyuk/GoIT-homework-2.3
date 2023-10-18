@@ -22,11 +22,11 @@ def process_folder(folder_path,subpath, type_file,type_name ):
 
 
 def main():
-    # if len(sys.argv) != 2:
-    #     print("Введіть 2 параметра: назву скрипта і папку, яку потрібно розібрати")
-    #     quit()
-    # folder_path = Path(sys.argv[1])
-    folder_path = Path('e:/ttt')
+    if len(sys.argv) != 2:
+        print("Введіть 2 параметра: назву скрипта і папку, яку потрібно розібрати")
+        quit()
+    folder_path = Path(sys.argv[1])
+    # folder_path = Path('e:/ttt')
     print(repr(folder_path))
 
 
